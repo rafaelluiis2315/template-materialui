@@ -6,7 +6,6 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 
 //Declaração do componente EditarTarefa, recebendo como props, do Componente ListarTarefa, os states handCloseEditar,
@@ -42,8 +41,6 @@ const EditarTarefa = ({handleCloseEditar, idTarefaSelecionada, tarefas, tarefa, 
   };
 
   const handleEditar = () => {
-    //console.log(`id: ${idTarefa} \n titulo: ${tituloTarefa} \n descrição: ${descricaoTarefa} \n inicio: ${inicioTarefa} \n fim: ${fimTarefa} \n recurso: ${recursoTarefa} \n status: ${statusTarefa}`);
-    //console.log('idTarefaSelecionada: ' + idTarefaSelecionada);
     setTarefas(current =>
       current.map(obj => {
         if (obj.idTarefa === idTarefaSelecionada) {
@@ -68,8 +65,8 @@ const EditarTarefa = ({handleCloseEditar, idTarefaSelecionada, tarefas, tarefa, 
   };
 
   return(
-    <Grid container spacing={2}>
-      <Card sx={style}>
+    <Grid container spacing={2} >
+      <Card sx={style} enableColorOnDark>
         <CardHeader
           title="Tarefas"
           subheader="Edição de Tarefas"
@@ -93,7 +90,7 @@ const EditarTarefa = ({handleCloseEditar, idTarefaSelecionada, tarefas, tarefa, 
           <Grid container spacing={2} mt={1}>
             <Grid item xs={3}>  
               <FormControl>
-                <Input id="tarefa_inicio" type="date" aria-describedby="tarefa_inicio_helper_text" value={inicioTarefa} onChange={e => { setInicioTarefa(e.target.value) }}
+                <Input id="tarefa_inicio"  type="date" aria-describedby="tarefa_inicio_helper_text" value={inicioTarefa} onChange={e => { setInicioTarefa(e.target.value) }}
                   sx={{
                     color:'rgba(0, 0, 0, 0.6)',
                     fontWeight: 400,
@@ -104,8 +101,8 @@ const EditarTarefa = ({handleCloseEditar, idTarefaSelecionada, tarefas, tarefa, 
               </FormControl>
             </Grid>  
             <Grid item xs={3}>  
-              <FormControl>
-                <Input id="tarefa_fim" type="date" aria-describedby="tarefa_fim_helper_text" value={fimTarefa} onChange={e => { setFimTarefa(e.target.value) }}
+              <FormControl >
+                <Input  id="tarefa_fim" type="date" aria-describedby="tarefa_fim_helper_text" value={fimTarefa} onChange={e => { setFimTarefa(e.target.value) }}
                   sx={{
                     color:'rgba(0, 0, 0, 0.6)',
                     fontWeight: 400,
